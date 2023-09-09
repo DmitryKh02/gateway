@@ -8,5 +8,5 @@ public enum EmploymentStatus {
     SELF_EMPLOYED("Self-employed"),
     BUSINESS_OWNER("Business owner");
 
-    private final String status;
+    private final String value;
 }

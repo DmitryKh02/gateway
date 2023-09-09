@@ -13,6 +13,6 @@ public enum Theme {
     CREDIT_ISSUED("Credit_issued"),
     APPLICATION_DENIED("Application_denied");
 
-    private final String themeName;
+    private final String value;
 
 }

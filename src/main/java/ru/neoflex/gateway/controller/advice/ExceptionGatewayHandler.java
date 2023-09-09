@@ -3,6 +3,7 @@ package ru.neoflex.gateway.controller.advice;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -16,12 +17,14 @@ import java.io.IOException;
 
 @Slf4j
 @ControllerAdvice
+@RequiredArgsConstructor
 public class ExceptionGatewayHandler {
+    private final ObjectMapper mapper;
+
     @ResponseBody
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(BadRequestToServer.class)
     public JsonNode onOtherServerException(BadRequestToServer ex) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
         return mapper.readTree(ex.getResponse());
     }
 

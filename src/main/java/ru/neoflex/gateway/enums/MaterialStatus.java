@@ -8,5 +8,5 @@ public enum MaterialStatus {
     DIVORCED("Divorced"),
     MARRIED("Married");
 
-    private final String materialStatus;
+    private final String value;
 }
